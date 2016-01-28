@@ -72,12 +72,6 @@ In Iftt, you need create a new Receipe to discover new tweets with awesome links
 
 ### Step 6 - Enjoy your telegram NewsBoy!
 
-## Contribute
-
-To contribute you can try to find an [issue or enchancment][2] and try to
-implement it. Fork the project, implement the code, make tests, add yourself
-to the [contributors][3] list and send the PR to the master branch.
-
 ### License
 
 Copyright (c) 2015, Marcos Bérgamo <marcos@thedon.com.br>
