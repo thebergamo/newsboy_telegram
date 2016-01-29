@@ -23,6 +23,7 @@ module.exports = (ctx, done) => {
   MongoClient.connect(ctx.data.MONGO_URL, (err, db) => {
     if (err) {
       console.log('ERROR ON CONNECT DB', err);
+      db.close();
       return done();
     }
     
@@ -32,11 +33,13 @@ module.exports = (ctx, done) => {
       storeNews(ctx.data.FirstLinkUrl, ctx.data.UserName, db, (err, result) => {
         if (err) {
           console.log('STORE NEWS ERROR', err);
+          db.close();
           return done();
         }
 
         if (result.result.nModified > 0) {
           console.log('MESSAGE SHIPED PREVIOUSLY!');
+          db.close();
           return done();
         }
 
@@ -46,6 +49,8 @@ module.exports = (ctx, done) => {
 
         console.log('MSG SENDED: ', msg);
         bot.send(msg);
+        db.close();
+        return done();
       });
   });
 };
